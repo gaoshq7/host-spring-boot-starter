@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "Command.proto";
+
+package cn.gsq.host.common.protobuf;
+
+option java_outer_classname = "Message";
+option java_multiple_files = false;
+
+message BaseMsg {
+
+	/**
+	 * 客户端唯一标识
+	 */
+	string clientId = 1;
+
+	/**
+	 * 指令类型
+	 */
+	CommandType type = 2;
+
+	/**
+	 * 指令包
+	 */
+	optional string data = 3;
+
+	/**
+	 * 时间戳
+	 */
+	google.protobuf.Timestamp time = 4;
+
+}

@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package cn.gsq.host.common.protobuf;
+
+option java_outer_classname = "Command";
+option java_multiple_files = false;
+
+/**
+ * 指令类型
+ */
+enum CommandType {
+
+	/**
+	 * 身份认证
+	 */
+	AUTH = 0;
+
+	/**
+	 * 认证响应
+	 */
+	AUTH_BACK = 1;
+
+	/**
+	 * 心跳
+	 */
+	PING = 2;
+
+	/**
+	 * 心跳响应
+	 */
+	PONG = 3;
+
+	/**
+	 * 推送数据
+	 */
+	PUSH = 4;
+
+	/**
+	 * 推送响应
+	 */
+	PUSH_BACK = 5;
+
+	/**
+	 * 拉取数据
+	 */
+	PULL = 6;
+
+	/**
+	 * 拉取响应
+	 */
+	PULL_BACK = 7;
+
+	/**
+	 * 主机退役
+	 */
+	RESIGN = 8;
+
+	/**
+	 * 退役响应
+	 */
+	RESIGN_BACK = 9;
+
+}

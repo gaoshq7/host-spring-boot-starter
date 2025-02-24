@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.gsq.host.config.MasterAutoConfigure, \
+cn.gsq.host.config.SlaveAutoConfigure
+org.springframework.context.ApplicationListener=\
+cn.gsq.host.config.InitializeListener

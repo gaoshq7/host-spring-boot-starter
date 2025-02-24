@@ -1,0 +1,60 @@
+{
+  "properties": [
+    {
+      "name": "host.hm.master.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否开启心跳服务模式.",
+      "sourceType": "cn.gsq.host.config.MProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "host.hm.master.debug",
+      "type": "java.lang.Boolean",
+      "description": "是否开启主进程调试模式.",
+      "sourceType": "cn.gsq.host.config.MProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "host.hm.master.ip",
+      "type": "java.lang.String",
+      "description": "心跳接收服务网络接口.",
+      "sourceType": "cn.gsq.host.config.MProperties",
+      "defaultValue": "0.0.0.0"
+    },
+    {
+      "name": "host.hm.master.port",
+      "type": "java.lang.Integer",
+      "description": "心跳接收服务端口号.",
+      "sourceType": "cn.gsq.host.config.MProperties",
+      "defaultValue": 19999
+    },
+    {
+      "name": "host.hm.slave.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否开启心跳终端模式.",
+      "sourceType": "cn.gsq.host.config.SProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "host.hm.slave.debug",
+      "type": "java.lang.Boolean",
+      "description": "是否开启从进程调试模式.",
+      "sourceType": "cn.gsq.host.config.SProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "host.hm.slave.server",
+      "type": "java.lang.String",
+      "description": "心跳服务网络IP地址.",
+      "sourceType": "cn.gsq.host.config.SProperties",
+      "defaultValue": "127.0.0.1"
+    },
+    {
+      "name": "host.hm.slave.port",
+      "type": "java.lang.Integer",
+      "description": "心跳服务端口号.",
+      "sourceType": "cn.gsq.host.config.SProperties",
+      "defaultValue": 19999
+    }
+  ]
+}
