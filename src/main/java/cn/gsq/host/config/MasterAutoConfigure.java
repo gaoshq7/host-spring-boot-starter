@@ -65,7 +65,7 @@ public class MasterAutoConfigure {
 
         @Override
         public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-            String isEnable = context.getEnvironment().getProperty("host.hm.master.enabled");
+            String isEnable = context.getEnvironment().getProperty("galaxy.heartbeat.server.enabled");
             return Boolean.parseBoolean(isEnable);
         }
 

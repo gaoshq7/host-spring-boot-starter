@@ -21,15 +21,15 @@ public class InitializeListener implements ApplicationListener<ContextRefreshedE
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         ApplicationContext context = event.getApplicationContext();
-        boolean onMaster = Boolean.parseBoolean(context.getEnvironment().getProperty("host.hm.master.enabled"));
-        boolean onSlave = Boolean.parseBoolean(context.getEnvironment().getProperty("host.hm.slave.enabled"));
+        boolean onMaster = Boolean.parseBoolean(context.getEnvironment().getProperty("galaxy.heartbeat.server.enabled"));
+        boolean onSlave = Boolean.parseBoolean(context.getEnvironment().getProperty("galaxy.heartbeat.agent.enabled"));
         if (onMaster) {
-            boolean masterIsDebug = Boolean.parseBoolean(context.getEnvironment().getProperty("host.hm.master.debug"));
+            boolean masterIsDebug = Boolean.parseBoolean(context.getEnvironment().getProperty("galaxy.heartbeat.server.debug"));
             initLogSystem(Constant.MASTER, masterIsDebug ? "debug" : "info");
             mInitialize(context);
         }
         if (onSlave) {
-            boolean slaveIsDebug = Boolean.parseBoolean(context.getEnvironment().getProperty("host.hm.slave.debug"));
+            boolean slaveIsDebug = Boolean.parseBoolean(context.getEnvironment().getProperty("galaxy.heartbeat.agent.debug"));
             initLogSystem(Constant.SLAVE, slaveIsDebug ? "debug" : "info");
             sInitialize(context);
         }

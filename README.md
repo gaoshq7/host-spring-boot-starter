@@ -23,9 +23,9 @@
 ```
 ### 管理节点配置
 ```yaml
-host:
-  hm:
-    master:
+galaxy:
+  heartbeat:
+    server:
       enabled: true
       debug: true
 ```
@@ -56,9 +56,9 @@ public class MasterApplication implements ApplicationRunner {
 ```
 ### 工作节点配置
 ```yaml
-host:
-  hm:
-    slave:
+galaxy:
+  heartbeat:
+    agent:
       enabled: true
       debug: true
 ```

@@ -14,15 +14,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  **/
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "host.hm.slave")
+@ConfigurationProperties(prefix = "galaxy.heartbeat.agent")
 public class SProperties {
 
     private boolean enabled = false;
 
     private boolean debug = false;
 
-    private String server = "127.0.0.1";
+    private String serverAddress = "127.0.0.1";
 
-    private Integer port = 19999;
+    private Integer serverPort = 19999;
 
 }

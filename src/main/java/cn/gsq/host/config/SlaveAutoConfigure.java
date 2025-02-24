@@ -34,7 +34,7 @@ public class SlaveAutoConfigure {
 
     @Bean(name = "host_manager_client")
     public HmClient hmClient(@Qualifier("channel_initializer") ChannelInitializer<SocketChannel> initializer, SProperties properties) {
-        return new HmClient(initializer, properties.getServer(), properties.getPort());
+        return new HmClient(initializer, properties.getServerAddress(), properties.getServerPort());
     }
 
     @Bean(name = "channel_initializer")
@@ -57,7 +57,7 @@ public class SlaveAutoConfigure {
 
         @Override
         public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-            String isEnable = context.getEnvironment().getProperty("host.hm.slave.enabled");
+            String isEnable = context.getEnvironment().getProperty("galaxy.heartbeat.agent.enabled");
             return Boolean.parseBoolean(isEnable);
         }
 

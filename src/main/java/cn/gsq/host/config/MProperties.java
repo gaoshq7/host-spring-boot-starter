@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  **/
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "host.hm.master")
+@ConfigurationProperties(prefix = "galaxy.heartbeat.server")
 public class MProperties {
 
     private boolean enabled = false;
