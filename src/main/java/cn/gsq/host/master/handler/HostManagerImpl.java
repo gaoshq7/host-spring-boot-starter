@@ -2,6 +2,7 @@ package cn.gsq.host.master.handler;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.gsq.host.common.EnvUtil;
 import cn.gsq.host.master.HostManager;
@@ -10,6 +11,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -67,6 +69,39 @@ public class HostManagerImpl<T extends Host> implements HostManager<T> {
                 throw new RuntimeException(StrUtil.format("{}主机处于连接状态不可删除", hostname));
             }
             delete(hostname);
+        }
+    }
+
+    @Override
+    public Set<String> getHostnames() {
+        List<String> names = CollUtil.map(this.hosts, Host::getHostname, true);
+        return CollUtil.newHashSet(names);
+    }
+
+    @Override
+    public List<T> getActives() {
+        List<T> actives = CollUtil.filter(this.hosts, Host::isConnected);
+        return ListUtil.unmodifiable(actives);
+    }
+
+    @Override
+    public List<T> getDeads() {
+        List<T> deads = CollUtil.filter(this.hosts, host -> !host.isConnected());
+        return ListUtil.unmodifiable(deads);
+    }
+
+    @Override
+    public boolean isExist(String hostname) {
+        return CollUtil.contains(this.hosts, host -> host.getHostname().equals(hostname));
+    }
+
+    @Override
+    public boolean isActive(String hostname) {
+        T host = this.get(hostname);
+        if (host == null) {
+            throw ExceptionUtil.wrapRuntime(hostname + "主机不存在");
+        } else {
+            return host.isConnected();
         }
     }
 

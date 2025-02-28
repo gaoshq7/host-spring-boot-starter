@@ -3,6 +3,7 @@ package cn.gsq.host.master;
 import cn.gsq.host.master.handler.Host;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Project : host
@@ -21,5 +22,15 @@ public interface HostManager<T extends Host> {
     void close(String hostname);
 
     void remove(String hostname);
+
+    Set<String> getHostnames();
+
+    List<T> getActives();
+
+    List<T> getDeads();
+
+    boolean isExist(String hostname);
+
+    boolean isActive(String hostname);
 
 }
