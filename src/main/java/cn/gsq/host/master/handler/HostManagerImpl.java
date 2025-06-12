@@ -139,7 +139,7 @@ public class HostManagerImpl<T extends Host> implements HostManager<T> {
 
                 @Override
                 public List<Host> load() {
-                    return List.of();
+                    return CollUtil.newArrayList();
                 }
 
                 @Override
