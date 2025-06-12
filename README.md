@@ -83,9 +83,9 @@ public class SlaveApplication {
 }
 ```
 ### 管理节点控制台
-![image](https://github.com/gaoshq7/cornerstone/blob/main/host-manager-spring-boot-starter/images/master-console.jpg)
+![image](images/master-console.jpg)
 ### 工作节点控制台
-![image](https://github.com/gaoshq7/cornerstone/blob/main/host-manager-spring-boot-starter/images/slave-console.jpg)
+![image](images/slave-console.jpg)
 ## 自定义互联业务逻辑
 ### 工作节点 - 自定义注册请求
 ```java
